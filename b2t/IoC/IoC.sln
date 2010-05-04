@@ -1,0 +1,13 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00F8B1A8-12A9-47F3-9257-59D2914AD86A}"
+	ProjectSection(SolutionItems) = preProject
+		IoC\IoC.csproj = IoC\IoC.csproj
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
