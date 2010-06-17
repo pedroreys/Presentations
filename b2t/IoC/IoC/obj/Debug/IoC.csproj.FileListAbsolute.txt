@@ -1,7 +1,0 @@
-C:\dev\Presentations\b2t\IoC\IoC\bin\Debug\IoC.dll
-C:\dev\Presentations\b2t\IoC\IoC\bin\Debug\IoC.pdb
-C:\dev\Presentations\b2t\IoC\IoC\obj\Debug\ResolveAssemblyReference.cache
-C:\dev\Presentations\b2t\IoC\IoC\obj\Debug\IoC.dll
-C:\dev\Presentations\b2t\IoC\IoC\obj\Debug\IoC.pdb
-C:\dev\Presentations\b2t\IoC\IoC\bin\Debug\StructureMap.dll
-C:\dev\Presentations\b2t\IoC\IoC\bin\Debug\StructureMap.xml

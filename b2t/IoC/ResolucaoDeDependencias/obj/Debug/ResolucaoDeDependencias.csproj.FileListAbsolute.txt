@@ -1,5 +1,0 @@
-C:\dev\Presentations\b2t\IoC\ResolucaoDeDependencias\obj\Debug\ResolveAssemblyReference.cache
-C:\dev\Presentations\b2t\IoC\IoC\bin\Debug\ResolucaoDeDependencias.dll
-C:\dev\Presentations\b2t\IoC\IoC\bin\Debug\ResolucaoDeDependencias.pdb
-C:\dev\Presentations\b2t\IoC\ResolucaoDeDependencias\obj\Debug\ResolucaoDeDependencias.dll
-C:\dev\Presentations\b2t\IoC\ResolucaoDeDependencias\obj\Debug\ResolucaoDeDependencias.pdb
