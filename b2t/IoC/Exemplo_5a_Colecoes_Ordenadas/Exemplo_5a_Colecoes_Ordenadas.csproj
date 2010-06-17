@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{807BF609-AB9A-4331-A55C-AF0818783BBD}</ProjectGuid>
+    <ProjectGuid>{F1781605-FF92-46CA-9DF5-69DEA38C12A3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Exemplo_1_Sem_IOC</RootNamespace>
-    <AssemblyName>Exemplo_1_Sem_IOC</AssemblyName>
+    <RootNamespace>Exemplo_5a_Colecoes_Ordenadas</RootNamespace>
+    <AssemblyName>Exemplo_5a_Colecoes_Ordenadas</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,14 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="StructureMap">
-      <HintPath>..\..\..\lib\StructureMap\StructureMap.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Aplicacao\EnviadorDeEmail.cs" />
+    <Compile Include="Aplicacao\IConexaoComBd.cs" />
     <Compile Include="Aplicacao\IEnviadorDeEmail.cs" />
+    <Compile Include="Aplicacao\IFormatadorDeMensagem.cs" />
+    <Compile Include="Aplicacao\IRegistroDeAlerta.cs" />
+    <Compile Include="Aplicacao\IRegraDeFormatacao.cs" />
+    <Compile Include="Aplicacao\IRepositorio.cs" />
     <Compile Include="Aplicacao\ISimulador.cs" />
+    <Compile Include="Aplicacao\LoggerDeEmail.cs" />
+    <Compile Include="Aplicacao\Model\Cliente.cs" />
+    <Compile Include="Aplicacao\Repositorio.cs" />
     <Compile Include="Aplicacao\Simulador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -47,7 +50,9 @@
     <Compile Include="ResolucaoDeDependencias\ServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aplicacao\Model\" />
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\lib\StructureMap\StructureMap.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

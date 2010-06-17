@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{807BF609-AB9A-4331-A55C-AF0818783BBD}</ProjectGuid>
+    <ProjectGuid>{44061C13-D0F5-4194-89BA-6E83C244E339}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Exemplo_1_Sem_IOC</RootNamespace>
-    <AssemblyName>Exemplo_1_Sem_IOC</AssemblyName>
+    <RootNamespace>Exemplo_2b_OpenGenerics</RootNamespace>
+    <AssemblyName>Exemplo_2b_OpenGenerics</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,17 +37,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacao\EnviadorDeEmail.cs" />
+    <Compile Include="Aplicacao\IConexaoComBd.cs" />
     <Compile Include="Aplicacao\IEnviadorDeEmail.cs" />
+    <Compile Include="Aplicacao\IRegistroDeAlerta.cs" />
+    <Compile Include="Aplicacao\IRepositorio.cs" />
     <Compile Include="Aplicacao\ISimulador.cs" />
+    <Compile Include="Aplicacao\Model\Cliente.cs" />
+    <Compile Include="Aplicacao\Repositorio.cs" />
     <Compile Include="Aplicacao\Simulador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResolucaoDeDependencias\Registrador.cs" />
     <Compile Include="ResolucaoDeDependencias\RegistroDeExemplo.cs" />
     <Compile Include="ResolucaoDeDependencias\ServiceLocator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Aplicacao\Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
