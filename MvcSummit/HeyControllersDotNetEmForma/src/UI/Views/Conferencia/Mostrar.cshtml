@@ -1,0 +1,45 @@
+﻿@model Exemplo.UI.Models.ConferenciaMostrarModelo
+
+@{
+    ViewBag.Title = "Mostrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Html.DisplayFor(x => x.Nome)</h2>
+
+    <h3>Palestras</h3>    
+    @if (@Model.Palestras.Any())
+    {
+        <table>
+            <tr>
+                <th>Palestrante</th>
+                <th>Titulo</th>                
+            </tr>
+            @foreach (var palestra in Model.Palestras)
+            {
+                <tr>
+                    <td>@palestra.Titulo</td>
+                    <td>@string.Format("{0} {1}",palestra.PalestranteNome,palestra.PalestranteSobrenome)</td>
+                </tr>
+            }
+        </table>        
+    }
+    
+    <h3>Participantes</h3>
+    @if (@Model.Participantes.Any())
+    {
+        <table>
+            <tr>
+                <th>Nome</th>
+            </tr>
+            @foreach (var participante in Model.Participantes)
+            {
+                <tr>                    
+                    <td>@string.Format("{0} {1}",participante.Nome,participante.Sobrenome)</td>
+                </tr>
+            }
+        </table>        
+    }    
+</fieldset>
+
+

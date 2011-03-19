@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Exemplo.UI.Models.ConferenciaListarModelo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Nome
+        </th>
+        <th>
+            QuantidadeDePalestras
+        </th>
+        <th>
+            QuantidadeDeParticipantes
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { nomeEvento = item.Nome }) |
+            @Html.ActionLink("Mostrar", "Mostrar", new { nomeEvento = item.Nome }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            @item.Nome
+        </td>
+        <td>
+            @item.QuantidadeDePalestras
+        </td>
+        <td>
+            @item.QuantidadeDeParticipantes
+        </td>
+    </tr>
+}
+
+</table>
+
