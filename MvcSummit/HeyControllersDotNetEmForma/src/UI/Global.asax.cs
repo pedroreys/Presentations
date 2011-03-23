@@ -43,7 +43,9 @@ namespace Exemplo.UI
 
 			InicializadorAutoMapper.Inicializar();
 
-			var dataLoader = new DummyDataLoader(new RepositorioDeConferencias());
+			ModelBinders.Binders.Add(typeof(Conferencia), ObjectFactory.GetInstance<ConferenciaModelBinder>());
+
+			var dataLoader = ObjectFactory.GetInstance<DummyDataLoader>();
 
 			dataLoader.Load();
 		}

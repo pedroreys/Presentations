@@ -29,24 +29,18 @@ namespace Exemplo.UI.Controllers
 			return View(modelo);
 		}
 
-		public ActionResult Mostrar(string nomeEvento)
+		public ActionResult Mostrar(Conferencia nomeEvento)
 		{
-
-			var conf = _repositorio.RetornaPeloNome(nomeEvento);
-
-			var modelo = Mapper.Map<Conferencia, ConferenciaMostrarModelo>(conf);
+			var modelo = Mapper.Map<Conferencia, ConferenciaMostrarModelo>(nomeEvento);
 
 			return View(modelo);
 
 		}
 
-		public ActionResult Editar(string nomeEvento)
+		public ActionResult Editar(Conferencia nomeEvento)
 		{
+			var modelo = Mapper.Map<Conferencia, ConferenciaEditarModelo>(nomeEvento);
 
-			var conf = _repositorio.RetornaPeloNome(nomeEvento);
-
-			var modelo = Mapper.Map<Conferencia, ConferenciaEditarModelo>(conf);
-			
 			return View(modelo);
 		}
 
