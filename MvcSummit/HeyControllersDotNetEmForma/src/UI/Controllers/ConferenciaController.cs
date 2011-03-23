@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
 using Exemplo.Dominio.Repositorios;
-using Exemplo.Infraestrutura.Repositorios;
 using Exemplo.UI.Models;
 
 namespace Exemplo.UI.Controllers
@@ -10,9 +9,9 @@ namespace Exemplo.UI.Controllers
 	{
 		private IRepositorioDeConferencias _repositorio;
 
-		public ConferenciaController()
+		public ConferenciaController(IRepositorioDeConferencias repositorio)
 		{
-			_repositorio = new RepositorioDeConferencias();
+			_repositorio = repositorio;
 		}
 
 		public ActionResult Index(int? qtdMinPalestras)
