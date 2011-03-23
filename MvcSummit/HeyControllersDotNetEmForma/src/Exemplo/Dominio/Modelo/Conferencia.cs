@@ -28,7 +28,7 @@ namespace Exemplo.Dominio.Modelo
 			Nome = nome;
 		}
 
-		public virtual IEnumerable<Participante> TodosParticipantes()
+		public virtual IEnumerable<Participante> GetParticipantes()
 		{
 			return _participantes;
 		}
@@ -44,7 +44,7 @@ namespace Exemplo.Dominio.Modelo
 			QuantidadeDeParticipantes++;
 		}
 
-		public virtual IEnumerable<Palestra> TodasPalestras()
+		public virtual IEnumerable<Palestra> GetPalestras()
 		{
 			return _palestras;
 		}

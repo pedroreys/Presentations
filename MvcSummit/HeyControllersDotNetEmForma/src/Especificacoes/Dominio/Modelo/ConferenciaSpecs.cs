@@ -40,7 +40,7 @@ namespace TestesUnitarios.Dominio.Modelo
 
 		It deve_retornar_o_participante_a_partir_do_seu_id = () => conferencia.RetornaParticipante(participante.Id).ShouldEqual(participante);
 
-		It deve_constar_na_colecao_de_todos_os_participantes = () => conferencia.TodosParticipantes().ShouldContain(participante);
+		It deve_constar_na_colecao_de_todos_os_participantes = () => conferencia.GetParticipantes().ShouldContain(participante);
 	}
 
 	[Subject(typeof(Conferencia))]
@@ -64,6 +64,6 @@ namespace TestesUnitarios.Dominio.Modelo
 
 		It deve_retornar_a_palestra_a_partir_do_seu_id = () => conferencia.RetornaPalestra(palestra.Id).ShouldEqual(palestra);
 
-		It deve_constar_na_colecao_de_todos_as_palestras = () => conferencia.TodasPalestras().ShouldContain(palestra);
+		It deve_constar_na_colecao_de_todos_as_palestras = () => conferencia.GetPalestras().ShouldContain(palestra);
 	}
 }

@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
+using Exemplo.Dominio.Modelo;
 using Exemplo.Dominio.Repositorios;
 using Exemplo.UI.Models;
 
@@ -20,14 +22,11 @@ namespace Exemplo.UI.Controllers
 
 			var lista = _repositorio.Query()
 								.Where(conf => conf.QuantidadeDePalestras >= qtdMinPalestras)
-								.Select(conf => new ConferenciaListarModelo
-				        		{
-				        			Id = conf.Id,
-				        			Nome = conf.Nome,
-				        			QuantidadeDePalestras = conf.QuantidadeDePalestras,
-				        			QuantidadeDeParticipantes = conf.QuantidadeDeParticipantes
-				        		});
-			return View(lista);
+								.ToArray();
+
+			var modelo = Mapper.Map<Conferencia[], ConferenciaListarModelo[]>(lista);
+
+			return View(modelo);
 		}
 
 		public ActionResult Mostrar(string nomeEvento)
@@ -35,25 +34,7 @@ namespace Exemplo.UI.Controllers
 
 			var conf = _repositorio.RetornaPeloNome(nomeEvento);
 
-			var modelo = new ConferenciaMostrarModelo
-			             	{
-			             		Nome = conf.Nome,
-			             		Palestras = conf.TodasPalestras()
-			             			.Select(p => new ConferenciaMostrarModelo.ModeloPalestra()
-			             			{
-			             			    Titulo = p.Titulo,
-			             			    PalestranteNome = p.Palestrante.Nome,
-			             			    PalestranteSobrenome = p.Palestrante.Sobrenome
-			             			}).ToArray(),
-
-								Participantes = conf.TodosParticipantes()
-								.Select(p => new ConferenciaMostrarModelo.ModeloParticipante()
-								             	{
-								             		Nome = p.Nome,
-													Sobrenome = p.Sobrenome,
-													Email = p.Email
-								             	}).ToArray()
-			             	};
+			var modelo = Mapper.Map<Conferencia, ConferenciaMostrarModelo>(conf);
 
 			return View(modelo);
 
@@ -64,21 +45,9 @@ namespace Exemplo.UI.Controllers
 
 			var conf = _repositorio.RetornaPeloNome(nomeEvento);
 
-			var model = new ConferenciaEditarModelo
-			{
-				Id = conf.Id,
-				Nome = conf.Nome,
-				Participantes = conf.TodosParticipantes()
-								.Select(p => new ConferenciaEditarModelo.ParticipanteEditarModelo()
-								{
-									Nome = p.Nome,
-									Sobrenome = p.Sobrenome,
-									Email = p.Email
-								}).ToArray(),
-			};
-
-
-			return View(model);
+			var modelo = Mapper.Map<Conferencia, ConferenciaEditarModelo>(conf);
+			
+			return View(modelo);
 		}
 
 		[HttpPost]
@@ -93,7 +62,7 @@ namespace Exemplo.UI.Controllers
 
 			conf.AlterarNome(form.Nome);
 
-			foreach (var participanteEditarModelo in conf.TodosParticipantes())
+			foreach (var participanteEditarModelo in conf.GetParticipantes())
 			{
 				var participante = conf.RetornaParticipante(participanteEditarModelo.Id);
 				participante.AlterarNome(participanteEditarModelo.Nome,participanteEditarModelo.Sobrenome);

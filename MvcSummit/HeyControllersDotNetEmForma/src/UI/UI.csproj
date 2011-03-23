@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\lib\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="StructureMap">
       <HintPath>..\..\lib\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
@@ -72,6 +75,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\InicializadorAutoMapper.cs" />
     <Compile Include="Helpers\DummyDataLoader.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ConferenciaEditarModelo.cs" />
