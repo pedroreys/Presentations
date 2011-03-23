@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
-using Exemplo.Dominio.Modelo;
+using Exemplo.Dominio.Repositorios;
 using Exemplo.Infraestrutura.Repositorios;
 using Exemplo.UI.Models;
 
@@ -8,7 +8,7 @@ namespace Exemplo.UI.Controllers
 {
 	public class ConferenciaController : Controller
 	{
-		private RepositorioDeConferencias _repositorio;
+		private IRepositorioDeConferencias _repositorio;
 
 		public ConferenciaController()
 		{
@@ -33,6 +33,7 @@ namespace Exemplo.UI.Controllers
 
 		public ActionResult Mostrar(string nomeEvento)
 		{
+
 			var conf = _repositorio.RetornaPeloNome(nomeEvento);
 
 			var modelo = new ConferenciaMostrarModelo
@@ -61,6 +62,7 @@ namespace Exemplo.UI.Controllers
 
 		public ActionResult Editar(string nomeEvento)
 		{
+
 			var conf = _repositorio.RetornaPeloNome(nomeEvento);
 
 			var model = new ConferenciaEditarModelo

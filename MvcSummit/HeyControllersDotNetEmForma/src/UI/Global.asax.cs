@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Exemplo.Dominio.Modelo;
+using Exemplo.Infraestrutura.Repositorios;
 using Exemplo.UI.Helpers;
 using StructureMap;
 
@@ -39,7 +41,7 @@ namespace Exemplo.UI
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 
-			var dataLoader = ObjectFactory.GetInstance<IDummyDataLoader>();
+			var dataLoader = new DummyDataLoader(new RepositorioDeConferencias());
 
 			dataLoader.Load();
 		}
