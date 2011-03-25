@@ -42,9 +42,7 @@ namespace Exemplo.UI
 			RegisterRoutes(RouteTable.Routes);
 
 			InicializadorAutoMapper.Inicializar();
-
-			ModelBinders.Binders.Add(typeof(Conferencia), ObjectFactory.GetInstance<ConferenciaModelBinder>());
-
+			
 			var dataLoader = ObjectFactory.GetInstance<DummyDataLoader>();
 
 			dataLoader.Load();

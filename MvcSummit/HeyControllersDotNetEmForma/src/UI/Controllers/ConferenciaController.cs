@@ -2,12 +2,13 @@ using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using Exemplo.Dominio.Modelo;
+using Exemplo.Dominio.Query;
 using Exemplo.Dominio.Repositorios;
 using Exemplo.UI.Models;
 
 namespace Exemplo.UI.Controllers
 {
-	public class ConferenciaController : Controller
+	public class ConferenciaController : DefaultController
 	{
 		private IRepositorioDeConferencias _repositorio;
 
@@ -26,44 +27,25 @@ namespace Exemplo.UI.Controllers
 
 			var modelo = Mapper.Map<Conferencia[], ConferenciaListarModelo[]>(lista);
 
-			return View(modelo);
+			return AutoMapView<ConferenciaListarModelo[]>(View(modelo));
 		}
 
 		public ActionResult Mostrar(Conferencia nomeEvento)
 		{
-			var modelo = Mapper.Map<Conferencia, ConferenciaMostrarModelo>(nomeEvento);
-
-			return View(modelo);
-
+			return AutoMapView<ConferenciaMostrarModelo>(View(nomeEvento));
 		}
 
 		public ActionResult Editar(Conferencia nomeEvento)
 		{
-			var modelo = Mapper.Map<Conferencia, ConferenciaEditarModelo>(nomeEvento);
-
-			return View(modelo);
+			return AutoMapView<ConferenciaEditarModelo>(View(nomeEvento));
 		}
 
 		[HttpPost]
 		public ActionResult Editar(ConferenciaEditarModelo form)
 		{
-			if(!ModelState.IsValid)
-			{
-				return View(form);
-			}
+			var successResult = RedirectToAction("Index");
 
-			var conf = _repositorio.RetornaPeloId(form.Id);
-
-			conf.AlterarNome(form.Nome);
-
-			foreach (var participanteEditarModelo in conf.GetParticipantes())
-			{
-				var participante = conf.RetornaParticipante(participanteEditarModelo.Id);
-				participante.AlterarNome(participanteEditarModelo.Nome,participanteEditarModelo.Sobrenome);
-				participante.Email = participanteEditarModelo.Email;
-			}
-
-			return RedirectToAction("Index");
+			return Form(form, successResult);
 		}
 		
 	}

@@ -1,4 +1,6 @@
-using Exemplo.Infraestrutura.ResolucaoDeDependencias;
+using System.Web.Mvc;
+using Exemplo.Infraestrutura.Repositorios;
+using Exemplo.UI.Helpers;
 using StructureMap;
 namespace Exemplo.UI {
     public static class IoC {
@@ -8,7 +10,10 @@ namespace Exemplo.UI {
                             x.Scan(scan =>
                                     {
                                         scan.TheCallingAssembly();
-										scan.AssemblyContainingType<RegistroDeDependenciasPrincipal>();
+										scan.AssemblyContainingType(typeof(Repositorio<>));
+										scan.ConnectImplementationsToTypesClosing(typeof(Repositorio<>));
+                                    	scan.ConnectImplementationsToTypesClosing(typeof(IFormHandler<>));
+                                    	scan.AddAllTypesOf<IModelBinderProvider>();
                                         scan.WithDefaultConventions();
                                     });
             

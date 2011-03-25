@@ -69,13 +69,19 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ConferenciaController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\SmDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AutoMapViewResult.cs" />
     <Compile Include="Helpers\ConferenciaModelBinder.cs" />
+    <Compile Include="Helpers\ConferenciaModelBinderProvider.cs" />
+    <Compile Include="Helpers\FormActionResult.cs" />
+    <Compile Include="Helpers\Handlers\ConferenciaEditarModeloHandler.cs" />
+    <Compile Include="Helpers\IFormHandler.cs" />
     <Compile Include="Helpers\InicializadorAutoMapper.cs" />
     <Compile Include="Helpers\DummyDataLoader.cs" />
     <Compile Include="Models\AccountModels.cs" />

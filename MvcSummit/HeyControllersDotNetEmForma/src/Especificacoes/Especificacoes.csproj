@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\lib\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Machine.Specifications">
       <HintPath>..\..\lib\Machine.Specifications.0.4.7.0\lib\Machine.Specifications.dll</HintPath>
     </Reference>
@@ -51,6 +54,7 @@
     <Compile Include="Dominio\Modelo\PalestranteSpecs.cs" />
     <Compile Include="Dominio\Modelo\PalestraSpecs.cs" />
     <Compile Include="Dominio\Modelo\ParticipanteSpecs.cs" />
+    <Compile Include="Dominio\Query.cs" />
     <Compile Include="Infraestrutura\Repositorios\RepositorioSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +65,10 @@
     <ProjectReference Include="..\Exemplo\Exemplo.csproj">
       <Project>{A29F63DF-8A72-4CA6-A3F8-0F7C2629C0FC}</Project>
       <Name>Exemplo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI\UI.csproj">
+      <Project>{D279C21F-8A5B-47AD-B120-16E167C174B5}</Project>
+      <Name>UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
