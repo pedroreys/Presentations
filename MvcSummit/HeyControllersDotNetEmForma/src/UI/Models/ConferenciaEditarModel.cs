@@ -2,14 +2,14 @@
 
 namespace Exemplo.UI.Models
 {
-	public class ConferenciaEditarModelo
+	public class ConferenciaEditarModel
 	{
 		public Guid Id { get; set; }
 		public string Nome { get; set; }
 
-		public ParticipanteEditarModelo[] Participantes { get; set; }
+		public ParticipanteEditarModel[] Participantes { get; set; }
 
-		public class ParticipanteEditarModelo
+		public class ParticipanteEditarModel
 		{
 			public Guid Id { get; set; }
 			public string Nome { get; set; }

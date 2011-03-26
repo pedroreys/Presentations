@@ -1,9 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Exemplo.Dominio.Modelo;
 using Exemplo.Infraestrutura.Repositorios;
 using Exemplo.UI.Helpers;
-using StructureMap;
 
 namespace Exemplo.UI
 {
@@ -42,8 +40,8 @@ namespace Exemplo.UI
 			RegisterRoutes(RouteTable.Routes);
 
 			InicializadorAutoMapper.Inicializar();
-			
-			var dataLoader = ObjectFactory.GetInstance<DummyDataLoader>();
+
+			var dataLoader = new DummyDataLoader(new RepositorioDeConferencias());
 
 			dataLoader.Load();
 		}

@@ -2,17 +2,15 @@
 
 namespace Exemplo.UI.Models
 {
-	public class ConferenciaMostrarModelo
+	public class ConferenciaMostrarModel
 	{
-
 		public Guid Id { get; set; }
 		public string Nome { get; set; }
 
+		public PalestraModel[] Palestras { get; set; }
+		public ParticipanteModel[] Participantes { get; set; }
 
-		public ModeloPalestra[] Palestras { get; set; }
-		public ModeloParticipante[] Participantes { get; set; }
-
-		public class ModeloPalestra
+		public class PalestraModel
 		{
 			public string PalestranteNome { get; set; }
 
@@ -21,7 +19,7 @@ namespace Exemplo.UI.Models
 			public string Titulo { get; set; }
 		}
 
-		public class ModeloParticipante
+		public class ParticipanteModel
 		{
 			public string Nome { get; set; }
 

@@ -3,7 +3,7 @@ using Exemplo.UI.Models;
 
 namespace Exemplo.UI.Helpers.Handlers
 {
-	public class ConferenciaEditarModeloHandler : IFormHandler<ConferenciaEditarModelo>
+	public class ConferenciaEditarModeloHandler : IFormHandler<ConferenciaEditarModel>
 	{
 		private readonly IRepositorioDeConferencias _repositorio;
 
@@ -12,7 +12,7 @@ namespace Exemplo.UI.Helpers.Handlers
 			_repositorio = repositorio;
 		}
 
-		public void Handle(ConferenciaEditarModelo form)
+		public void Handle(ConferenciaEditarModel form)
 		{
 			var conf = _repositorio.RetornaPeloId(form.Id);
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Exemplo.Dominio.Modelo;
 
-namespace Exemplo.Dominio.Repositorios
+namespace Exemplo.Dominio
 {
 	public interface IRepositorio<T> where T : Entidade
 	{

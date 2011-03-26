@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\lib\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="StructureMap">
+    <Reference Include="StructureMap, Version=2.6.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\..\lib\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -68,6 +68,8 @@
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConferenciaControllerAntes.cs" />
+    <Compile Include="Controllers\ConferenciaControllerDepois.cs" />
     <Compile Include="Controllers\ConferenciaController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -85,9 +87,9 @@
     <Compile Include="Helpers\InicializadorAutoMapper.cs" />
     <Compile Include="Helpers\DummyDataLoader.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\ConferenciaEditarModelo.cs" />
-    <Compile Include="Models\ConferenciaListarModelo.cs" />
-    <Compile Include="Models\ConferenciaMostrarModelo.cs" />
+    <Compile Include="Models\ConferenciaEditarModel.cs" />
+    <Compile Include="Models\ConferenciaListarModel.cs" />
+    <Compile Include="Models\ConferenciaMostrarModel.cs" />
     <Compile Include="Models\ParticipanteConfirmacaoModelo.cs" />
     <Compile Include="Models\ParticipanteEditarModelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

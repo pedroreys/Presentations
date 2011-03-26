@@ -6,12 +6,12 @@ using Exemplo.UI.Models;
 
 namespace Exemplo.UI.Controllers
 {
-	public class ConferenciaController : DefaultController
+	public class ConferenciaControllerDepois : DefaultController
 	{
 
 		private IRepositorioDeConferencias _repositorio;
 
-		public ConferenciaController(IRepositorioDeConferencias repositorio)
+		public ConferenciaControllerDepois(IRepositorioDeConferencias repositorio)
 		{
 			_repositorio = repositorio;
 		}

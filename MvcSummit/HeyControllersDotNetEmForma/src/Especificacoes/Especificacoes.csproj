@@ -54,7 +54,6 @@
     <Compile Include="Dominio\Modelo\PalestranteSpecs.cs" />
     <Compile Include="Dominio\Modelo\PalestraSpecs.cs" />
     <Compile Include="Dominio\Modelo\ParticipanteSpecs.cs" />
-    <Compile Include="Dominio\Query.cs" />
     <Compile Include="Infraestrutura\Repositorios\RepositorioSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,9 +70,7 @@
       <Name>UI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infraestrutura\ResolucaoDeDependencias\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

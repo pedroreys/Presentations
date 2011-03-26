@@ -10,29 +10,32 @@ namespace Exemplo.UI.Helpers
 		{
 			Mapper.Initialize(cfg =>
 			{
-				cfg.AddProfile<ViewModeloProfile>();
-				cfg.AddProfile<EditarModeloProfile>();
+				cfg.AddProfile<ViewModelProfile>();
+				cfg.AddProfile<EditModelProfile>();
 			});
+
 		}
 	}
 
-	public class ViewModeloProfile : Profile
+	public class ViewModelProfile : Profile
 	{
 		protected override void Configure()
 		{
-			CreateMap<Conferencia, ConferenciaListarModelo>();
-			CreateMap<Conferencia, ConferenciaMostrarModelo>();
-			CreateMap<Palestra, ConferenciaMostrarModelo.ModeloPalestra>();
-			CreateMap<Participante, ConferenciaMostrarModelo.ModeloParticipante>();
+			CreateMap<Conferencia, ConferenciaListarModel>();
+			CreateMap<Conferencia, ConferenciaMostrarModel>();
+			CreateMap<Palestra, ConferenciaMostrarModel.PalestraModel>();
+			CreateMap<Participante, ConferenciaMostrarModel.ParticipanteModel>();
 		}
 	}
 
-	public class EditarModeloProfile : Profile
+	public class EditModelProfile : Profile
 	{
 		protected override void Configure()
 		{
-			CreateMap<Conferencia, ConferenciaEditarModelo>();
-			CreateMap<Participante, ConferenciaEditarModelo.ParticipanteEditarModelo>();
+			CreateMap<Conferencia, ConferenciaEditarModel>();
+			CreateMap<Participante, ConferenciaEditarModel.ParticipanteEditarModel>();
 		}
-	}
+	}	
+
+	
 }

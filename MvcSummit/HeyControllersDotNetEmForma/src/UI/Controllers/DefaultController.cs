@@ -19,10 +19,5 @@ namespace Exemplo.UI.Controllers
 
 			return new FormActionResult<TForm>(form,success,failure);
 		}
-
-		protected ActionResult Query<TDestination>(ViewResult viewResult)
-		{
-			return AutoMapView<TDestination>(viewResult);
-		}
 	}
 }

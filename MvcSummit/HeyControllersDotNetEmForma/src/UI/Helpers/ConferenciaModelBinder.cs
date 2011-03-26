@@ -12,7 +12,8 @@ namespace Exemplo.UI.Helpers
 			_repositorio = repositorio;
 		}
 
-		public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+		public object BindModel(ControllerContext controllerContext,
+								ModelBindingContext bindingContext)
 		{
 			ValueProviderResult value = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
 

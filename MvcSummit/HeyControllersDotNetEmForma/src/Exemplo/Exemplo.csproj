@@ -49,12 +49,11 @@
     <Compile Include="Dominio\Modelo\Conferencia.cs" />
     <Compile Include="Dominio\Modelo\Entidade.cs" />
     <Compile Include="Dominio\Query.cs" />
-    <Compile Include="Dominio\Query\ListarConferencias.cs" />
-    <Compile Include="Dominio\Repositorios\IRepositorio.cs" />
+    <Compile Include="Dominio\IRepositorio.cs" />
     <Compile Include="Dominio\Modelo\Palestra.cs" />
     <Compile Include="Dominio\Modelo\Palestrante.cs" />
     <Compile Include="Dominio\Modelo\Participante.cs" />
-    <Compile Include="Dominio\Repositorios\IRepositorioDeConferencias.cs" />
+    <Compile Include="Dominio\IRepositorioDeConferencias.cs" />
     <Compile Include="Infraestrutura\Repositorios\Repositorio.cs" />
     <Compile Include="Infraestrutura\Repositorios\RepositorioDeConferencias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

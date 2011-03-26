@@ -5,15 +5,15 @@ using StructureMap;
 namespace Exemplo.UI {
     public static class IoC {
         public static IContainer Initialize() {
-            ObjectFactory.Initialize(x =>
+                   ObjectFactory.Initialize(x =>
                         {
                             x.Scan(scan =>
                                     {
                                         scan.TheCallingAssembly();
-										scan.AssemblyContainingType(typeof(Repositorio<>));
-										scan.ConnectImplementationsToTypesClosing(typeof(Repositorio<>));
-                                    	scan.ConnectImplementationsToTypesClosing(typeof(IFormHandler<>));
-                                    	scan.AddAllTypesOf<IModelBinderProvider>();
+                                        scan.AssemblyContainingType(typeof(Repositorio<>));
+                                        scan.ConnectImplementationsToTypesClosing(typeof(Repositorio<>));
+                                        scan.ConnectImplementationsToTypesClosing(typeof(IFormHandler<>));
+                                        scan.AddAllTypesOf<IModelBinderProvider>();
                                         scan.WithDefaultConventions();
                                     });
             

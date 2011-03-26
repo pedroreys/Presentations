@@ -2,7 +2,7 @@
 
 namespace Exemplo.UI.Models
 {
-	public class ConferenciaListarModelo
+	public class ConferenciaListarModel
 	{
 		public Guid Id { get; set; }
 		public string Nome { get; set; }
