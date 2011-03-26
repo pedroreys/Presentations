@@ -1,0 +1,28 @@
+Falar sobre DI
+Instalar StructureMap
+Instalar StructureMap-MVC
+Configurar IoC 
+
+++++++++++++++++++++++++++++++
+Instalar Automapper
+Criar Profiles
+Criar Inicializador
+Inicializar AutoMapper no Global.asax
+Autalizar Actions para usar o Mapper
+
+++++++++++++++++++++++++++++++++++++
+Criar o ConferenciaModelBinder
+Criar o ConferenciaModelBinderProvider
+Configurar SM
+
+++++++++++++++++++++++++++++++++++++
+Criar AutoMapViewResult
+Criar AutoMapView Helper Method
+Adicionar AutoMapView nas Actions
+Falar sobre a diferença entre POST e GET
+Falar Sobre IFormHandler<>
+ConferenciaEditarModeloHandler
+Configurar SM
+Criar o FormActionResult
+Criar o Form Helper Method
+Alterar a Post Action para usar o Form Helper Method

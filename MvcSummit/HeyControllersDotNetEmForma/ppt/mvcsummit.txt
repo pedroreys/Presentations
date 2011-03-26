@@ -51,6 +51,9 @@ Mapper.Initialize(cfg =>
 				cfg.AddProfile<EditarModeloProfile>();
 			});	
 ///////////////////////////////
+// Global.asax => Inicializador AutoMapper			
+InicializadorAutoMapper.Inicializar();
+///////////////////////////////
 // Index com Mapper		
 public ActionResult Index(int? qtdMinPalestras)
 {
@@ -179,7 +182,7 @@ public ActionResult Editar(Conferencia nomeEvento)
 }
 
 ///////////////////////////////
-// Editar ConferenciaEditarModeloHandler
+// ConferenciaEditarModeloHandler
 public class ConferenciaEditarModeloHandler : IFormHandler<ConferenciaEditarModel>
 	{
 		private readonly IRepositorioDeConferencias _repositorio;

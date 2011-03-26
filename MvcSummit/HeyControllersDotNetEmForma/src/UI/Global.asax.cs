@@ -39,8 +39,6 @@ namespace Exemplo.UI
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 
-			InicializadorAutoMapper.Inicializar();
-
 			var dataLoader = new DummyDataLoader(new RepositorioDeConferencias());
 
 			dataLoader.Load();
