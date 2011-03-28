@@ -27,10 +27,10 @@ public class ViewModelProfile : Profile
 {
 	protected override void Configure()
 	{
-		CreateMap<Conferencia, ConferenciaListarModelo>();
-		CreateMap<Conferencia, ConferenciaMostrarModelo>();
-		CreateMap<Palestra, ConferenciaMostrarModelo.ModeloPalestra>();
-		CreateMap<Participante, ConferenciaMostrarModelo.ModeloParticipante>();
+		CreateMap<Conferencia, ConferenciaListarModel>();
+		CreateMap<Conferencia, ConferenciaMostrarModel>();
+		CreateMap<Palestra, ConferenciaMostrarModel.PalestraModel>();
+		CreateMap<Participante, ConferenciaMostrarModel.ParticipanteModel>();
 	}
 }
 ///////////////////////////////
@@ -39,16 +39,16 @@ public class EditModelProfile : Profile
 	{
 		protected override void Configure()
 		{
-			CreateMap<Conferencia, ConferenciaEditarModelo>();
-			CreateMap<Participante, ConferenciaEditarModelo.ParticipanteEditarModelo>();
+			CreateMap<Conferencia, ConferenciaEditarModel>();
+			CreateMap<Participante, ConferenciaEditarModel.ParticipanteEditarModel>();
 		}
 	}	
 ///////////////////////////////
 // Inicializador AutoMapper
 Mapper.Initialize(cfg =>
 			{
-				cfg.AddProfile<ViewModeloProfile>();
-				cfg.AddProfile<EditarModeloProfile>();
+				cfg.AddProfile<ViewModelProfile>();
+				cfg.AddProfile<EditarModelProfile>();
 			});	
 ///////////////////////////////
 // Global.asax => Inicializador AutoMapper			
@@ -61,7 +61,7 @@ public ActionResult Index(int? qtdMinPalestras)
 
 	var confs = _repositorio.Query().Where(conf => conf.QuantidadeDePalestras >= qtdMinPalestras).ToArray();
 
-	var modelo = Mapper.Map<Conferencia[], ConferenciaListarModelo[]>(confs);
+	var modelo = Mapper.Map<Conferencia[], ConferenciaListarModel[]>(confs);
 
 	return View(modelo);
 }
@@ -71,7 +71,7 @@ public ActionResult Mostrar(string nomeEvento)
 		{
 			var conf = _repositorio.RetornaPeloNome(nomeEvento);
 
-			var modelo = Mapper.Map<Conferencia, ConferenciaMostrarModelo>(conf);
+			var modelo = Mapper.Map<Conferencia, ConferenciaMostrarModel>(conf);
 
 			return View(modelo);
 		}
@@ -82,7 +82,7 @@ public ActionResult Editar(string nomeEvento)
 {
 	var conf = _repositorio.RetornaPeloNome(nomeEvento);
 
-	var modelo = Mapper.Map<Conferencia, ConferenciaEditarModelo>(conf);
+	var modelo = Mapper.Map<Conferencia, ConferenciaEditarModel>(conf);
 	
 	return View(modelo);
 }

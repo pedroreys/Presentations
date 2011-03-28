@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Web.Mvc;
+using Exemplo.Dominio.Modelo;
 using Exemplo.Dominio.Repositorios;
-using Exemplo.Infraestrutura.Repositorios;
 using Exemplo.UI.Models;
 
 namespace Exemplo.UI.Controllers
@@ -10,100 +10,36 @@ namespace Exemplo.UI.Controllers
 	{
 		private IRepositorioDeConferencias _repositorio;
 
-		public ConferenciaController()
+		public ConferenciaController(IRepositorioDeConferencias repositorio)
 		{
-			_repositorio = new RepositorioDeConferencias();
+			_repositorio = repositorio;
 		}
 
 		public ActionResult Index(int? qtdMinPalestras)
 		{
 			qtdMinPalestras = qtdMinPalestras ?? 0;
 
-			var confs = _repositorio.Query()
-								.Where(conf => conf.QuantidadeDePalestras >= qtdMinPalestras);
+			var confs = _repositorio.Query().Where(conf => conf.QuantidadeDePalestras >= qtdMinPalestras).ToArray();
 
-			var modelo = confs.Select(conf => new ConferenciaListarModel
-			{
-				Id = conf.Id,
-				Nome = conf.Nome,
-				QuantidadeDePalestras = conf.QuantidadeDePalestras,
-				QuantidadeDeParticipantes = conf.QuantidadeDeParticipantes
-			});
-			return View(modelo);
+			return AutoMapView<ConferenciaListarModel[]>(View(confs));
 		}
 
-		public ActionResult Mostrar(string nomeEvento)
+		public ActionResult Mostrar(Conferencia nomeEvento)
 		{
-
-			var conf = _repositorio.RetornaPeloNome(nomeEvento);
-
-			var modelo = new ConferenciaMostrarModel
-			{
-				Nome = conf.Nome,
-				Palestras = conf.GetPalestras()
-					.Select(p => new ConferenciaMostrarModel.PalestraModel()
-					{
-						Titulo = p.Titulo,
-						PalestranteNome = p.Palestrante.Nome,
-						PalestranteSobrenome = p.Palestrante.Sobrenome
-					}).ToArray(),
-
-				Participantes = conf.GetParticipantes()
-				.Select(p => new ConferenciaMostrarModel.ParticipanteModel()
-				{
-					Nome = p.Nome,
-					Sobrenome = p.Sobrenome,
-					Email = p.Email
-				}).ToArray()
-			};
-
-			return View(modelo);
-
+			return AutoMapView<ConferenciaMostrarModel>(View(nomeEvento));
 		}
 
-		public ActionResult Editar(string nomeEvento)
+		public ActionResult Editar(Conferencia nomeEvento)
 		{
-
-			var conf = _repositorio.RetornaPeloNome(nomeEvento);
-
-			var model = new ConferenciaEditarModel
-			{
-				Id = conf.Id,
-				Nome = conf.Nome,
-				Participantes = conf.GetParticipantes()
-								.Select(p => new ConferenciaEditarModel.ParticipanteEditarModel()
-								{
-									Nome = p.Nome,
-									Sobrenome = p.Sobrenome,
-									Email = p.Email
-								}).ToArray(),
-			};
-
-
-			return View(model);
+			return AutoMapView<ConferenciaEditarModel>(View(nomeEvento));
 		}
 
 		[HttpPost]
 		public ActionResult Editar(ConferenciaEditarModel form)
 		{
-			if (!ModelState.IsValid)
-			{
-				return View(form);
-			}
+			var successResult = RedirectToAction("Index");
 
-			var conf = _repositorio.RetornaPeloId(form.Id);
-
-			conf.AlterarNome(form.Nome);
-
-			foreach (var participanteEditarModelo in conf.GetParticipantes())
-			{
-				var participante = conf.RetornaParticipante(participanteEditarModelo.Id);
-				participante.AlterarNome(participanteEditarModelo.Nome, participanteEditarModelo.Sobrenome);
-				participante.Email = participanteEditarModelo.Email;
-			}
-
-			return RedirectToAction("Index");
+			return Form(form, successResult);
 		}
-
 	}
 }

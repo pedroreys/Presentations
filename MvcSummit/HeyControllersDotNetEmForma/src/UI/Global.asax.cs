@@ -41,6 +41,9 @@ namespace Exemplo.UI
 
 			var dataLoader = new DummyDataLoader(new RepositorioDeConferencias());
 
+			InicializadorAutoMapper.Inicializar();
+
+
 			dataLoader.Load();
 		}
 	}

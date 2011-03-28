@@ -1,3 +1,4 @@
+using System;
 using Exemplo.Dominio.Repositorios;
 using Exemplo.UI.Models;
 
@@ -26,4 +27,5 @@ namespace Exemplo.UI.Helpers.Handlers
 			}
 		}
 	}
+
 }
