@@ -43,7 +43,6 @@ namespace Exemplo.UI
 
 			InicializadorAutoMapper.Inicializar();
 
-
 			dataLoader.Load();
 		}
 	}
